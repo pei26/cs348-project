@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meeting List</title>
+</head>
+<body>
+    <h1>All Meetings</h1>
+    <ul>
+        {% for meeting in meetings %}
+            <li>
+                <strong>{{ meeting.date }} {{ meeting.time }}</strong> - {{ meeting.club.name }} at {{ meeting.room }} 
+                (<a href="{% url 'meeting_detail' meeting_id=meeting.id %}">View Details</a>)
+            </li>
+        {% empty %}
+            <li>No meetings found.</li>
+        {% endfor %}
+    </ul>
+    <p><a href="{% url 'index' %}">Back to Home</a></p>
+</body>
+</html>

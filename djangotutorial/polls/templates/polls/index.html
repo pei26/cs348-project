@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Page</title>
+</head>
+<body>
+    <h1>Welcome to the Meeting Management System</h1>
+    <ul>
+        <li><a href="{% url 'create_meeting' %}">Create Meeting</a></li>
+        <li><a href="{% url 'list_meetings' %}">List Meetings</a></li>
+        <li><a href="{% url 'meeting_report' %}">View Meeting Report</a></li>
+        <li><a href="/admin/">Admin Panel</a></li>
+    </ul>
+</body>
+</html>

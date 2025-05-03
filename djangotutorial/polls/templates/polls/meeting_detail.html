@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meeting Detail</title>
+</head>
+<body>
+    <h1>Meeting Detail</h1>
+    <p>Date: {{ meeting.date }}</p>
+    <p>Time: {{ meeting.time }}</p>
+    <p>Duration: {{ meeting.duration }}</p>
+    <p>Description: {{ meeting.description }}</p>
+    <p>Club: {{ meeting.club.name }}</p>
+    <p>Room: {{ meeting.room }}</p>
+    <p>Invited: {{ meeting.invited_count }}, Accepted: {{ meeting.accepted_count }}</p>
+
+    <h2>Organizers</h2>
+    <ul>
+        {% for organizer in organizers %}
+            <li>{{ organizer.student.name }}</li>
+        {% endfor %}
+    </ul>
+    
+    <!-- Make sure these links are present -->
+    <p>
+        <a href="{% url 'edit_meeting' meeting_id=meeting.id %}">Edit Meeting</a> |
+        <a href="{% url 'delete_meeting' meeting_id=meeting.id %}">Delete Meeting</a>
+    </p>
+    
+    <a href="{% url 'list_meetings' %}">Back to Meeting List</a>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Meeting</title>
+</head>
+<body>
+    <h1>Edit Meeting</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <label for="organizers">Select Meeting Organizers:</label><br>
+        <select name="organizers" id="organizers" multiple>
+            {% for student in students %}
+                <option value="{{ student.id }}"
+                    {% if student.id in selected_organizers %} selected {% endif %}>
+                    {{ student.name }}
+                </option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Update Meeting</button>
+    </form>
+    <p>
+        <a href="{% url 'meeting_detail' meeting_id=meeting.id %}">Cancel and go back</a>
+    </p>
+</body>
+</html>
